@@ -15,6 +15,7 @@ public class Loader {
         Murka.feed(141.51);
 
 
+
         System.out.println("Поела: " + Murka.nyam());
         System.out.println(Murka.getStatus() + " " + Murka.getWeight());
 
