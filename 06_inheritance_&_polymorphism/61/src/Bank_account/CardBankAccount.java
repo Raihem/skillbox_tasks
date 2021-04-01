@@ -1,11 +1,8 @@
 package Bank_account;
 
-public class BankAccount {
+public class CardBankAccount extends BankAccount{
 
-    public int balance;
 
-    public BankAccount() {
-    }
 
 
     public void setBalance(int balance) {
@@ -13,17 +10,24 @@ public class BankAccount {
     }
 
 
-    public BankAccount(int balance){
+    public CardBankAccount(int balance){
+
         this.balance = balance;
     }
 
 
     public void moneyAdd(int amount) {  balance = balance + amount;  }
 
-    public void moneyWith(int amount)   {  balance = balance - amount;  }
+    public void moneyWith(int amount)
+    {
+        balance = (int)(balance - (amount*1.01));
+    }
 
-        public int getBalance () {
+    public int getBalance () {
         return balance;
     }
 
 }
+
+
+
