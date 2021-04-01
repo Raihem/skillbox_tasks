@@ -2,7 +2,7 @@ package Bank_account;
 
 public class BankAccount {
 
-    public int balance;
+    protected int balance;
 
     public BankAccount() {
     }
