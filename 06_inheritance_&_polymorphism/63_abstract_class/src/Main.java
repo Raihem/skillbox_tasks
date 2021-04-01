@@ -22,6 +22,7 @@ public class Main {
         Self_Employed man3 = new Self_Employed(100, "ИП Хитрожопин");  //  частный предприниматель
 
         man3.moneyAdd(100);
+
         man3.moneyWith(0);
 
         System.out.println(man3.name + " (self_Employed) account balance: " + man3.getBalance()+"\n");

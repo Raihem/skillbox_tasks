@@ -8,11 +8,6 @@ public class BankAccount {
     }
 
 
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
-
-
     public BankAccount(int balance){
         this.balance = balance;
     }

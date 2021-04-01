@@ -5,9 +5,6 @@ public class DepoBankAccount extends BankAccount{
 
     long start = System.currentTimeMillis()*1000;
 
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
 
 
     public DepoBankAccount(int balance){
@@ -16,7 +13,7 @@ public class DepoBankAccount extends BankAccount{
     }
 
 
-    public void moneyAdd(int amount) {  balance = balance + amount;  }
+
 
     public void moneyWith(int amount)  {
         long duration = System.currentTimeMillis()*1000 - start;
@@ -33,8 +30,6 @@ public class DepoBankAccount extends BankAccount{
         }
     }
 
-    public int getBalance () {
-        return balance;
-    }
+
 
 }
