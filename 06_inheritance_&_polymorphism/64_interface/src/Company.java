@@ -1,53 +1,90 @@
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Company implements Employee{
 
-    String emp_type;
-    int salary = 15000;
+    int m_salary = 37000;
+    int tm_salary = 75000;
+    int op_salary = 45000;
+
     int InCome;
+    int y_count;
 
-    int m_count;
-    int tm_count;
-    int o_count;
 
-    void getIncome(int amount) {
-        amount = InCome;
+    public int getIncome(int amount) {                           // получение значения дохода компании – getIncome().
+        return InCome = InCome + amount  ;
+
     }
 
     public Company() {
 
 
-     }
+    }
 
     TreeMap<String, Integer> stf = new TreeMap<>();
+    List<Integer> myStf = new ArrayList<Integer>();
 
     void hire(String emp_type) {                                  //      найм одного сотрудника
-        Company company = new Company();
-        if(emp_type.equals("manager")) {
-             stf.put(emp_type,  company.getMonthSalary());
 
+        if(emp_type.equals("manager")) {
+            stf.put(emp_type, m_getMonthSalary());
+            myStf.add(m_getMonthSalary());
+        } else if(emp_type.equals("top_manager")) {
+            stf.put(emp_type, tm_getMonthSalary());
+            myStf.add(tm_getMonthSalary());
+        } else if(emp_type.equals("operator")) {
+            stf.put(emp_type, op_getMonthSalary());
+            myStf.add(op_getMonthSalary());
+        } else {
+            System.out.println("Unknown type of employee");
         }
 
 
     }
-
 
 
     void hireAll(String emp_type, int amount) {                      //	найм списка сотрудников
-        for (int i = 0; i < amount; i++) {
-            Company company = new Company();
-            stf.put(emp_type+i,  company.getMonthSalary());
+        for (int i = 1; i <= amount; i++) {
 
-            m_count++;
+            if(emp_type.equals("manager")) {
+                stf.put(emp_type + i, m_getMonthSalary());
+                myStf.add(m_getMonthSalary());
+            } else if(emp_type.equals("top_manager")) {
+                stf.put(emp_type + i, tm_getMonthSalary());
+                myStf.add(tm_getMonthSalary());
+            } else if(emp_type.equals("operator")) {
+                stf.put(emp_type + i, op_getMonthSalary());
+                myStf.add(op_getMonthSalary());
+            } else {
+                System.out.println("Unknown type of employee");
+            }
+            y_count++;
         }
     }
 
 
 
-          //   увольнение сотрудника
+    void fire(String emp_type, int amount) {                      //	найм списка сотрудников
+        for (int i = 1; i <= amount; i++) {
 
-          // получение значения дохода компании – getIncome().
+            if(emp_type.equals("manager")) {
+                stf.remove(emp_type + i );
+
+            } else if(emp_type.equals("top_manager")) {
+                stf.remove(emp_type + i );
+
+            } else if(emp_type.equals("operator")) {
+                stf.remove(emp_type + i );
+
+            } else {
+                System.out.println("Unknown type of employee");
+            }
+            y_count--;
+        }
+    }  //   увольнение сотрудника
+
+    int get_y_count(){
+        return y_count;
+    }
 
 
     void getAll() {
@@ -55,31 +92,57 @@ public class Company implements Employee{
         for (String key : stf.keySet()) {
             System.out.println(key  + " " + stf.get(key) + " руб ");
         }
+        }
 
 
+
+    List<Employee> getTopSalaryStaff(int count) {
+        System.out.println("Топ " + count + " максимальных зарплат: ");
+        for (int i = 0; i < count; i++) {
+            int maxVal = Collections.max(myStf);
+            int maxIdx = myStf.indexOf(maxVal);
+            System.out.println(maxVal + " руб");
+              myStf.remove(maxIdx);
+        } return null;
 
     }
-    public List<Employee> getTopSalaryStaff(int count) {
+
+
+    	List<Employee> getLowestSalaryStaff(int count) {
+        System.out.println("Топ " + count + " минимальных зарплат: ");
+        for (int i = 0; i < count; i++) {
+                int minVal = Collections.min(myStf);
+                int maxIdx = myStf.indexOf(minVal);
+                System.out.println(minVal + " руб");
+                myStf.remove(maxIdx);
+            }
         return null;
     }
 
 
-    public List<Employee> getLowestSalaryStaff(int count) {
-        return null;
-    }
-
-    public void salary(int amount)
-    {
-        salary = salary + amount;
-    }
 
     @Override
-    public int getMonthSalary() {
-        if(salary==15000) {
-           return  (int) (salary + ((115000 + Math.random() * 10 * 25000)) * 0.05);
-        } else
-        return (int) (salary + ((1150000000 + Math.random() * 10 * 25000)) * 0.05);
+    public int m_getMonthSalary() {
+
+           return  (int) (m_salary + ((115000 + Math.random() * 10 * 25000)) * 0.05);
+        }
+
+
+
+    @Override
+    public int tm_getMonthSalary()  {
+        if(InCome > 10000000) {return (int) (tm_salary+tm_salary*1.5);}
+        else{
+        return  tm_salary;}
     }
-}
+
+
+    @Override
+    public int op_getMonthSalary() {
+        return op_salary;
+    }
+    }
+
+
 
 
