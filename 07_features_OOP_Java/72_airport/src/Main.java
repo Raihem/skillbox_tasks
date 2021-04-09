@@ -3,13 +3,19 @@ import com.skillbox.airport.Airport;
 import com.skillbox.airport.Flight;
 import com.skillbox.airport.Terminal;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.Type;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class Main {
 
 
+
     public static void main(String[] args) {
+
         Airport aero = Airport.getInstance();
 
 
@@ -17,11 +23,10 @@ public class Main {
         List<Terminal> d = aero.getTerminals();
 
 
-//        System.out.println(aero.getAllAircrafts());
+      System.out.println(aero.getAllAircrafts());
 //        System.out.println(aero.getTerminals());
 //        System.out.println(c.size());
 //        System.out.println(c.get(401));
-
 
         System.out.println(d.size());
 
@@ -29,27 +34,37 @@ public class Main {
             System.out.println(terminal1.getFlights());
 
 
-
 //        Date date = new Date();
-//        Aircraft ar1= new Aircraft("Airbus A-320");
-//
-//        Flight axe = new Flight("800",ARRIVAL,date,ar1);
-//
-//        System.out.println(axe.getDate());
 
 
 
         List<Flight> term = new ArrayList<>();
         for (Terminal terminal1 : d )
-        term.addAll(terminal1.getFlights());
 
-        term
-                .forEach(System.out::println);
+            term.addAll
+                        (terminal1.getFlights());
 
 
+
+        term.stream()
+//             .filter(flight -> flight.getDate().after())
+
+              .forEach(System.out::println);
+
+        System.out.println("__________");
+
+
+
+        for(Flight flight : term)
+
+        {
+            System.out.print(flight.getAircraft()+" ");
+            System.out.println(flight);
+        }
 
 
 
     }
+
 }
 
