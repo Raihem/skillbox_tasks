@@ -2,6 +2,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -14,15 +16,26 @@ public class Main
     {
         ArrayList<Employee> staff = loadStaffFromFile();
 
+        Calendar calendar = new GregorianCalendar(2017, 0 , 0);
+        Date date = calendar.getTime();
+
+        staff.stream()
+
+//                .sorted(Comparator.comparing(Employee::getSalary))
+                .filter(employee -> employee.getWorkStart().after(date))
+                .max(Comparator.comparing(Employee::getSalary))
+
+
+                .ifPresent(System.out::println);
 
     }
+
+
 
     private static ArrayList<Employee> loadStaffFromFile()
     {
         ArrayList<Employee> staff = new ArrayList<>();
 
-        staff.stream()
-                .map(e->e.getSalary());
 
         try
         {
