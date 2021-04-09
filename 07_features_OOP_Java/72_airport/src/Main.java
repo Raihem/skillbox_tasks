@@ -37,18 +37,14 @@ public class Main {
 //
 //        System.out.println(axe.getDate());
 
-        Terminal terminal = new Terminal("E");
 
 
+        List<Flight> term = new ArrayList<>();
+        for (Terminal terminal1 : d )
+        term.addAll(terminal1.getFlights());
 
-        List<Flight> flights = new ArrayList<>();
-
-
-
-//        flights.addAll(aero.getAllAircrafts());
-//                flights
-////                .filter(flight -> flight.getDate().after())
-//                .forEach(System.out::println);
+        term
+                .forEach(System.out::println);
 
 
 
