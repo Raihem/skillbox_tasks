@@ -34,9 +34,6 @@ public class Main {
             System.out.println(terminal1.getFlights());
 
 
-//        Date date = new Date();
-
-
 
         List<Flight> term = new ArrayList<>();
         for (Terminal terminal1 : d )
@@ -44,25 +41,26 @@ public class Main {
             term.addAll
                         (terminal1.getFlights());
 
-
-
         term.stream()
-//             .filter(flight -> flight.getDate().after())
+//             .filter(flight -> flight.getDate().after()) // need correct date for filter
+
 
               .forEach(System.out::println);
 
         System.out.println("__________");
 
-
+        Collections.sort(term, (o1,o2)-> o1.getDate().compareTo(o2.getDate()));
+        Collections.sort(term, (o1,o2)-> o1.getType().compareTo(o2.getType()));
 
         for(Flight flight : term)
 
         {
             System.out.print(flight.getAircraft()+" ");
             System.out.println(flight);
+
         }
 
-
+        System.out.println("\n"+"Please, check last flights for your mission.");
 
     }
 
