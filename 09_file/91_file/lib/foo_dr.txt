@@ -1,0 +1,31 @@
+foobar2000 1.2.2 / Dynamic Range Meter 1.1.1
+log date: 2015-10-19 21:29:13
+
+--------------------------------------------------------------------------------
+Analyzed: Slayer / Divine Intervention (American 50-51011-6035-2-5)
+--------------------------------------------------------------------------------
+
+DR         Peak         RMS     Duration Track
+--------------------------------------------------------------------------------
+DR10       0.00 dB   -11.02 dB      3:58 01-Killing Fields
+DR9        0.00 dB   -10.34 dB      1:50 02-Sex. Murder. Art.
+DR10       0.00 dB   -10.23 dB      3:38 03-Fictional Reality
+DR10       0.00 dB   -10.30 dB      2:31 04-Dittohead
+DR9        0.00 dB   -10.72 dB      5:33 05-Divine Intervention
+DR9        0.00 dB    -9.76 dB      4:30 06-Circle Of Beliefs
+DR9        0.00 dB   -10.11 dB      4:07 07-SS-3
+DR9       -0.05 dB   -10.16 dB      2:37 08-Serenity In Murder
+DR10      -0.02 dB   -11.18 dB      4:52 09-213
+DR8        0.00 dB    -9.97 dB      3:04 10-Mind Control
+--------------------------------------------------------------------------------
+
+Number of tracks:  10
+Official DR value: DR9
+
+Samplerate:        44100 Hz
+Channels:          2
+Bits per sample:   16
+Bitrate:           999 kbps
+Codec:             FLAC
+================================================================================
+
