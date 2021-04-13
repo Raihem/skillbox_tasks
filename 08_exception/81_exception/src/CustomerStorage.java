@@ -15,10 +15,16 @@ public class CustomerStorage
             String[] components = data.split("\\s+");
             if(components.length !=4 ) {
                 throw new IllegalArgumentException("Wrong format. Correct format: \n"+"add Василий Петров vasily.petrov@gmail.com +79215637722");
+            } else  if (!components[2].contains("@")&&!components[1].contains(".")) {
+                System.out.println("Mail not correct. Symbol @ or . not found");
+            }  else  if (components[3].length() != 12) {
+                System.out.println("Phone number not correct, Correct format: \n"+" +79215637722 ( + and 11 digits merged ) ");
             }
-            String name = components[0] + " " + components[1];
-            storage.put(name, new Customer(name, components[3], components[2]));
+            else {
+                String name = components[0] + " " + components[1];
 
+                storage.put(name, new Customer(name, components[3], components[2]));
+            }
 
     }
 
