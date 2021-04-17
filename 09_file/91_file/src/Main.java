@@ -12,13 +12,9 @@ public class Main {
 
 
         try{
-            FileInputStream is = new FileInputStream("lib/foo_dr.txt");
-            for(;;){
-               int code = is.read();
-               if(code < 0){break;}
-               char ch = (char) code;
-                builder.append(ch);
-            }
+            List<String> lines = Files.readAllLines(Paths.get("lib/foo_dr.txt"));
+            lines.forEach(line -> builder.append(line + "\n"));
+
         } catch (Exception ex) {ex.printStackTrace();}
 
         System.out.println(builder.toString());
