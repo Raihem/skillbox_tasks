@@ -14,7 +14,10 @@ public class Main {
         File folder = new File("E:/online/[Skillbox] Java-разработчик (2020)");
         File[] files = folder.listFiles();
 
+        for(File file: files){
+            System.out.println(file);
 
+        }
 
 
 
@@ -28,7 +31,6 @@ public class Main {
                     .mapToLong(p -> {
                         try {
 
-
                             return Files.size(p);
 
                         } catch (IOException e) {
@@ -40,16 +42,10 @@ public class Main {
         } catch (IOException e) {
             System.out.printf("Ошибка при подсчёте размера директории %s", e);
         }
+        System.out.println("-----------------");
         System.out.println(size + " bytes");
         int size1 = (int) (size/1024/1024);
         System.out.println(size1 + " MegaBytes");
-
-
-        for(File file: files){
-            System.out.println(file);
-
-
-        }
 
 
     }
