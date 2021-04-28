@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="JDBCExperimets" />
+        <module name="10_1sql" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />
