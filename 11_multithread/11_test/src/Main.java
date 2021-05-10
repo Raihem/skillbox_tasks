@@ -3,14 +3,13 @@ public class Main {
 // угадай число
 
     static int ran =  (int)(Math.random() * 100);
-    static boolean isran = false;
+    static boolean is_ran = false;
 
 
-    static boolean isFive = false;
     public static void main(String[] args) {
         System.out.println(ran+"\n");
 
-        Thread timer2 = new Thread(new Runnable() {
+        Thread guess = new Thread(new Runnable() {
             @Override
             public void run() {
 
@@ -19,20 +18,21 @@ public class Main {
                     while (true ){
                         int i2 =  (int)(Math.random() * 100);
                         if(i2==ran){
-                            isran=true;
-                            System.out.println("-> "+i2+" <-");
+                            is_ran=true;
+                            System.out.println("number is: "+"-> "+i2+" <-");
+                            System.out.println("threads stopped...");
                             break;
                         }
                         System.out.println(i2);
 
-                        Thread.sleep(101);
+                        Thread.sleep(100);
 
                     }
                 } catch (Exception e) {}
             }
 
         });
-        timer2.start();
+        guess.start();
 
         Thread timer = new Thread(new Runnable() {
             @Override
@@ -40,11 +40,11 @@ public class Main {
 
                 try {
                     int i = 0;
-                    while (!isran ){
+                    while (!is_ran ){
 
-                        System.out.println(i);
+                        System.out.println("step:"+i);
                         i++;
-                        Thread.sleep(99);
+                        Thread.sleep(101);
                     }
                 } catch (Exception e) {}
             }
